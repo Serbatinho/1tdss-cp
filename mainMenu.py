@@ -1,4 +1,8 @@
-users = {}
+from funcCp import load_users_from_csv
+from funcCp import save_users_to_csv
+   
+users = load_users_from_csv("users.csv")
+print(users)
 
 while True:
     print("\nUser Manager:")
@@ -8,7 +12,7 @@ while True:
     print("4. Search user by email")
     print("5. Exit")
     
-    choice = "5"
+    choice = str(input("Digite a alternativa: "))
 
     if choice == "1":
         name = input("Enter name: ")
@@ -45,5 +49,6 @@ while True:
             print("User not found.")
 
     elif choice == "5":
+        save_users_to_csv("users.csv", users)
         print("Goodbye!")
         break
